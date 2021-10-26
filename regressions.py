@@ -74,9 +74,10 @@ s, p = sp.normaltest(array)
 standarized_data = standarize(full_data)
 standarized_data.hist(bins=25)
 plt.show()
+standarized_data = standarized_data.drop('wind_direction_corr',axis=1)
 
-x = standarized_data.values[:, :6]
-y = standarized_data.values[:, 6]
+x = standarized_data.values[:, :5]
+y = standarized_data.values[:, 5]
 
 regr = regression(x, y)
 predicted = regr.predict(x)
